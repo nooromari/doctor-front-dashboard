@@ -1,7 +1,8 @@
-/* .App {
-  text-align: center;
+.App {
+ font-family: Arial, Helvetica, sans-serif;
+ color: rgb(58, 58, 58)
 }
-
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,13 +38,14 @@
   }
 } */
 
+@import url(reset.css);
 .header{
   position: relative;
   left: 0%;
   padding: 1%;
   height: 10%;
   background-color: rgb(228, 228, 228);
-  box-shadow: rgba(97, 96, 96, 0.308) 0px 2px 20px -20px;
+  box-shadow: rgba(97, 96, 96, 0.418) 0px 2px 20px -20px;
 }
 
 .footer{
@@ -53,4 +55,60 @@
   padding: 1%;
   bottom: 0%;
   text-align: center;
+}
+
+.container1{
+  border: solid 2px rgb(204, 202, 202);
+  width: 25%;
+  background-color: rgba(245, 245, 245, 0.548);
+
+}
+
+.v_stat{
+  padding: 5%;
+  border-bottom: rgb(231, 230, 230) solid 1px;
+}
+
+.v_stat:hover{
+  background-color: rgb(233, 235, 235);
+}
+
+h2{
+  padding: 15px;
+  font-size: x-large;
+}
+
+.head2{
+  display: flex;
+  justify-content: space-between;
+}
+
+.details{
+  text-decoration: none;
+  padding-top: 20px;
+  padding-right: 10px;
+}
+
+.v_num{
+  color: aliceblue;
+}
+
+.bg{
+  line-height: 180%;
+  text-align: center;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+}
+
+#Active{
+  background-color: rgb(31, 196, 105);
+}
+
+#Inactive{
+  background-color: rgb(0, 110, 255);
+}
+
+#InShop{
+  background-color: rgb(255, 175, 1);
 }
