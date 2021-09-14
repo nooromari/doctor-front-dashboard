@@ -19,7 +19,7 @@ function DonutChar(props) {
             colors :[color],
         },
         series: [props.percent],
-        labels: ['Condition'],
+        labels: ['%'],
         chart: {
             type: 'donut'
         },
@@ -39,10 +39,6 @@ function DonutChar(props) {
                     background: 'transparent',
                     labels: {
                         show: true,
-                        total: {
-                            show: true,
-                        }
-
                     }
                 }
             }
