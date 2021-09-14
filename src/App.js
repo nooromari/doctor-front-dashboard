@@ -4,72 +4,81 @@ import Header from './components/basic/Header';
 import Condition from './components/Condition';
 import LineChart from './components/LineChart';
 import Status from './components/Status';
+import { fetchData } from './data';
+import { useEffect, useState } from 'react';
+import { consumption, fuel_cost, avg_cons } from './data';
 
 function App() {
-  const stats = [
-    {
-      stat: "Active",
-      number: "10",
-    },
-    {
-      stat: "Inactive",
-      number: 4,
-    },
-    {
-      stat: "InShop",
-      number: 22,
-    }
-  ]
 
-  const conditions = [
+  const [stats, setSata] = useState({
+    Active: 0,
+    Inactive: 0,
+    InShop: 0,
+  })
+
+  const [conditions, setCond] = useState([
     {
       condition: "Good",
-      percent: 58,
-      number: 50,
+      percent: 0,
+      number: 0,
     },
     {
       condition: "Satisfactory",
-      percent: 27,
-      number: 14,
+      percent: 0,
+      number: 0,
     },
     {
       condition: "Critical",
-      percent: 15,
-      number: 7,
+      percent: 0,
+      number: 0,
     }
-  ]
+  ])
 
-  const avg_cons = 28.6;
-  const fuel_cost = 70.000;
-
-  const consumption =
-  {
-    per_month: {
-      Jan: 130000,
-      Feb: 60000,
-      Mar: 120000,
-      Apr: 80000,
-      May: 99000,
-      Jun: 60000,
-    },
-    per_week: {
-      Week1: 25000,
-      Week2: 20000,
-      Week3: 10000,
-      Week4: 16000,
-    },
-    per_day:
-    {
-      Sun: 1000,
-      Mon: 500,
-      Tus: 800,
-      Wed: 900,
-      Thu: 1500,
-      Fri: 700,
-      Sat: 1000
-    }
-
+  function setStatData(active, inactive, inShop) {
+    setSata({
+      Active: active.length,
+      Inactive: inactive.length,
+      InShop: inShop.length,
+    })
   }
+
+  function setCondData(conditions, good, satisfactory, critical){
+    setCond([
+      {
+        condition: "Good",
+        percent: good.length/conditions.length*100,
+        number: good.length,
+      },
+      {
+        condition: "Critical",
+        percent: critical.length/conditions.length*100,
+        number: critical.length,
+      },
+      {
+        condition: "Satisfactory",
+        percent: satisfactory.length/conditions.length*100,
+        number: satisfactory.length,
+      },
+    ])
+  }
+
+  async function getData() {
+    let active = await fetchData('status/Active')
+    let inactive = await fetchData('status/Inactive')
+    let inShop = await fetchData('status/InShop')
+    setStatData(active, inactive, inShop)
+  }
+  
+  async function getCond(){
+    let conditions = await fetchData('conditions/')
+    let good = await fetchData('conditions/Good/')
+    let satisfactory = await fetchData('conditions/Satisfactory')
+    let critical = await fetchData('conditions/Critical/')
+    setCondData(conditions, good, satisfactory, critical)
+  }
+
+  useEffect(()=> getCond(), [])
+  useEffect(() => getData(), [])
 
 
   return (
@@ -81,7 +90,7 @@ function App() {
             <h2>Vehicle Status</h2>
             <a href="." className="details">Details  &gt;</a>
           </div>
-          {stats.map((s, i) => <Status key={i} stat={s.stat} n={s.number} />)}
+          {Object.keys(stats).map((s, i) => <Status key={i} stat={s} n={stats[s]} />)}
         </div>
         <div className="container2">
           <h2>Vehicles Conditions</h2>
