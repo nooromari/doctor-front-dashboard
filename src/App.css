@@ -10,6 +10,7 @@
 main{
   display: flex;
   flex-wrap: wrap;
+  margin: 2%;
 }
 
 h2{
@@ -23,7 +24,7 @@ h2{
   padding: 1%;
   height: 10%;
   background-color: rgb(228, 228, 228);
-  box-shadow: rgba(97, 96, 96, 0.418) 0px 2px 20px -20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 25px 20px -20px;
 }
 
 .footer{
@@ -41,6 +42,7 @@ h2{
   width: 25%;
   background-color: rgba(245, 245, 245, 0.548);
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .v_stat{
@@ -97,6 +99,7 @@ h2{
   border: solid 2px rgb(204, 202, 202);
   background-color: rgba(245, 245, 245, 0.548);
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .all_cond{
   display: flex;
@@ -119,6 +122,7 @@ h2{
 .cond_title, .v_nums{
   font-size: larger;
   font-weight: bold;
+  padding-bottom: 2%;
 }
 
 #Good{
@@ -134,3 +138,44 @@ h2{
 }
 
 /* consumption design  */
+
+.container3{
+  width: 80%;
+  background-color: rgba(245, 245, 245, 0.548);
+  border: solid 2px rgb(204, 202, 202);
+  border-radius: 5px;
+  margin: 1% 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.fuel_cost{
+  padding: 2%;
+}
+.p{
+  padding: 10px;
+}
+.fuel_cost:only-child{
+}
+
+.butns{
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  margin: 1%;
+}
+
+button{
+  color: rgb(255, 255, 255);
+  padding: 2% 6%;
+  border-radius: 20px;
+  background-color: rgb(33, 194, 243);
+}
+
+button:hover{
+  background-color: rgba(33, 194, 243, 0.473);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button:active{
+  background-color: cadetblue;
+}
