@@ -104,7 +104,6 @@ h2{
 .all_cond{
   display: flex;
   justify-content: space-around;
-
 }
 .cond_sec{
   border: solid 2px rgb(204, 202, 202);
@@ -153,8 +152,6 @@ h2{
 }
 .p{
   padding: 10px;
-}
-.fuel_cost:only-child{
 }
 
 .butns{

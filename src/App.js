@@ -79,7 +79,7 @@ function App() {
         <div className="container1">
           <div className="head2">
             <h2>Vehicle Status</h2>
-            <a href="#" className="details">Details  &gt;</a>
+            <a href="." className="details">Details  &gt;</a>
           </div>
           {stats.map((s, i) => <Status key={i} stat={s.stat} n={s.number} />)}
         </div>
